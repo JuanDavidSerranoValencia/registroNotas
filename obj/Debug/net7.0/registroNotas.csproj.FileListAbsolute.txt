@@ -1,0 +1,14 @@
+C:\Users\APM02-68\Documents\projectsNetcore\registroNotas\bin\Debug\net7.0\registroNotas.exe
+C:\Users\APM02-68\Documents\projectsNetcore\registroNotas\bin\Debug\net7.0\registroNotas.deps.json
+C:\Users\APM02-68\Documents\projectsNetcore\registroNotas\bin\Debug\net7.0\registroNotas.runtimeconfig.json
+C:\Users\APM02-68\Documents\projectsNetcore\registroNotas\bin\Debug\net7.0\registroNotas.dll
+C:\Users\APM02-68\Documents\projectsNetcore\registroNotas\bin\Debug\net7.0\registroNotas.pdb
+C:\Users\APM02-68\Documents\projectsNetcore\registroNotas\obj\Debug\net7.0\registroNotas.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\APM02-68\Documents\projectsNetcore\registroNotas\obj\Debug\net7.0\registroNotas.AssemblyInfoInputs.cache
+C:\Users\APM02-68\Documents\projectsNetcore\registroNotas\obj\Debug\net7.0\registroNotas.AssemblyInfo.cs
+C:\Users\APM02-68\Documents\projectsNetcore\registroNotas\obj\Debug\net7.0\registroNotas.csproj.CoreCompileInputs.cache
+C:\Users\APM02-68\Documents\projectsNetcore\registroNotas\obj\Debug\net7.0\registroNotas.dll
+C:\Users\APM02-68\Documents\projectsNetcore\registroNotas\obj\Debug\net7.0\refint\registroNotas.dll
+C:\Users\APM02-68\Documents\projectsNetcore\registroNotas\obj\Debug\net7.0\registroNotas.pdb
+C:\Users\APM02-68\Documents\projectsNetcore\registroNotas\obj\Debug\net7.0\registroNotas.genruntimeconfig.cache
+C:\Users\APM02-68\Documents\projectsNetcore\registroNotas\obj\Debug\net7.0\ref\registroNotas.dll
