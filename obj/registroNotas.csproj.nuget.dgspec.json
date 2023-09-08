@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\APM02-68\\Documents\\projectsNetcore\\registroNotas\\registroNotas.csproj": {}
+    "c:\\Users\\PC\\Documents\\archivos.net\\registroNotas\\registroNotas.csproj": {}
   },
   "projects": {
-    "C:\\Users\\APM02-68\\Documents\\projectsNetcore\\registroNotas\\registroNotas.csproj": {
+    "c:\\Users\\PC\\Documents\\archivos.net\\registroNotas\\registroNotas.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\APM02-68\\Documents\\projectsNetcore\\registroNotas\\registroNotas.csproj",
+        "projectUniqueName": "c:\\Users\\PC\\Documents\\archivos.net\\registroNotas\\registroNotas.csproj",
         "projectName": "registroNotas",
-        "projectPath": "C:\\Users\\APM02-68\\Documents\\projectsNetcore\\registroNotas\\registroNotas.csproj",
-        "packagesPath": "C:\\Users\\APM02-68\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\APM02-68\\Documents\\projectsNetcore\\registroNotas\\obj\\",
+        "projectPath": "c:\\Users\\PC\\Documents\\archivos.net\\registroNotas\\registroNotas.csproj",
+        "packagesPath": "C:\\Users\\PC\\.nuget\\packages\\",
+        "outputPath": "c:\\Users\\PC\\Documents\\archivos.net\\registroNotas\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\APM02-68\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\PC\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net7.0"

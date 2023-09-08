@@ -1,4 +1,5 @@
 ﻿
+using System.Collections;
 using System.Runtime.InteropServices;
 using registroNotas.Entities;
 
@@ -10,20 +11,22 @@ internal class Program
         bool flag = true;
         while (flag)
         {
-            Console.WriteLine("Registro Notas Estudiantes");
+            Console.WriteLine("\nRegistro Notas Estudiantes");
             Console.WriteLine("1 Registrar estudiantes");
             Console.WriteLine("2 Registrar Notas");
             Console.WriteLine("3 Mostrar Paginado ");
             Console.WriteLine("4 Salir");
             try{
                 int opc;
-                Console.WriteLine("Ingrese la opcion que desea realizar");
+                Console.Write("Ingrese la opcion que desea realizar:");
                 opc = int.Parse(Console.ReadLine());
                 if(opc ==1){
                     Console.Clear();
                     Console.WriteLine("REGISTRO ESTUDIANTES");
                     List<Estudiantes> listaEstudiantes = new List<Estudiantes>();
-                    Estudiantes.crearEstudiantes(listaEstudiantes,2);
+                    Estudiantes.crearEstudiantes(listaEstudiantes);
+                    Console.WriteLine(listaEstudiantes);
+                    
                 
                     
                 }else if (opc ==2){
