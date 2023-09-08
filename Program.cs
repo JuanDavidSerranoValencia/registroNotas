@@ -1,5 +1,6 @@
 ﻿
 using System.Collections;
+using System.Reflection.Metadata;
 using System.Runtime.InteropServices;
 using registroNotas.Entities;
 
@@ -8,6 +9,7 @@ internal class Program
     private static void Main(string[] args)
     {
         Estudiantes estudiante = new Estudiantes();
+        List<Estudiantes> listaEstudiantes = new List<Estudiantes>();
         bool flag = true;
         while (flag)
         {
@@ -23,11 +25,19 @@ internal class Program
                 if(opc ==1){
                     Console.Clear();
                     Console.WriteLine("REGISTRO ESTUDIANTES");
-                    List<Estudiantes> listaEstudiantes = new List<Estudiantes>();
                     Estudiantes.crearEstudiantes(listaEstudiantes);
-                    Console.WriteLine(listaEstudiantes);
-                    
-                
+                    Console.Write("Saber si el id ya se cuentra registrado;");
+                    int variable= int.Parse(Console.ReadLine());
+                    int [] variables = new int [listaEstudiantes.Count];
+                    for (int i= 0;i<listaEstudiantes.Count;i++){
+                        variables.Append(i);
+                        if (i == variable){
+
+                        }
+
+                    }
+                    bool existe = variables.Contains(variable);
+                   
                     
                 }else if (opc ==2){
                     Console.Clear();

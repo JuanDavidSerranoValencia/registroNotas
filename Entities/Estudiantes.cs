@@ -71,14 +71,14 @@ namespace registroNotas.Entities
             Console.Write("Ingrese la cantidad de estudiantes que desea registrar:");
             int cantidad = int.Parse(Console.ReadLine());
             int agregados = 0;
+            
             while (agregados < cantidad)
-            {
+            {  
                 try
                 {
 
-
                     Console.Write("\nIngrese el Codigo del estudiante:");
-                    String? cod = Console.ReadLine();
+                    String ? cod = Console.ReadLine();
                     Console.Write("Ingrese el nombre del estudiante:");
                     String? nom = Console.ReadLine();
                     Console.Write($"Ingrese el correo del estudiante {nom}:");
@@ -88,37 +88,35 @@ namespace registroNotas.Entities
                     Console.Write($"Ingrese la direccion del estudiante {nom}:");
                     String? direccion = Console.ReadLine();
 
-                    if (edad != null && edad != "" && nom != null && nom != "" && cod != null && cod != "" && correo != null && correo != "" && direccion != null && direccion != "")
-                    {
-                        if (cod.Length <= 0 || cod.Length > 16 || nom.Length <= 0 || nom.Length > 41 || correo.Length <= 0 || correo.Length > 36 || edad.Length <= 0 || edad.Length > 36 || direccion.Length <= 0 || direccion.Length > 36)
-                        {
+                    if (edad != null && edad != "" && nom != null && nom != "" && cod != null && cod != "" && correo != null && correo != "" && direccion != null && direccion != ""){
+                        if (cod.Length <= 0 || cod.Length > 16 || nom.Length <= 0 || nom.Length > 41 || correo.Length <= 0 || correo.Length > 36 || edad.Length <= 0 || edad.Length > 36 || direccion.Length <= 0 || direccion.Length > 36){
+                            
                             Console.WriteLine("Los datos no corresponden con las longitudes especificas");
                             Console.WriteLine("{0,10} {0,10} {0,10} {0,10} {0,10}", "codigo", "nom", "correo", "edad", "direccion");
                         }
-                        else
-                        {
+                        else {   int [] codigos = new int[lsEstudiantes.Count];
+                            
 
                             Estudiantes estudiante = new Estudiantes(int.Parse(cod), nom, correo, int.Parse(edad), direccion);
                             lsEstudiantes.Add(estudiante);
                             agregados = agregados + 1;
-                            Console.Write("Estudiantes creados con exito");
+                            Console.Write("Estudiantes creados con exito \n");
+                            
+                        
                         }
 
-
                     }
-                    else
-                    {
+                    else{
                         Console.WriteLine("Verifique los datos ingresados correspondan con lo solicitado");
 
-                    }
+                        }
                 
                 }
-                catch (Exception e)
-                {
+                catch (Exception e){
                 Console.WriteLine("Debe ingresar valores validos para los datos solicitados", e);
-            }
+                }
 
-        }
+            }
 
         }
 
