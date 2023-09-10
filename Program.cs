@@ -34,7 +34,7 @@ internal class Program
                 {
                     Console.Clear();
                     Console.WriteLine("REGISTRO NOTAS");
-                    Estudiantes.crearNotas(listaEstudiantes, estudiante);
+                    Estudiantes.crearNotas(listaEstudiantes);
                 
                 }
                 else if (opc == 3)

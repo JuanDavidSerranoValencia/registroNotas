@@ -18,9 +18,7 @@ namespace registroNotas.Entities
         private double parciales;
         private double quices;
         private double trabajos;
-        public Estudiantes()
-        {
-
+        public Estudiantes(){
         }
         public Estudiantes(int cod, String nombre, String correo, int edad, String direccion)
         {
@@ -74,7 +72,6 @@ namespace registroNotas.Entities
             get { return quices; }
             set { quices = value; }
         }
-
         public double Trabajos
         {
             get { return trabajos; }
@@ -130,7 +127,7 @@ namespace registroNotas.Entities
             }
 
         }
-        public static void crearNotas(List<Estudiantes> lsEstudiante, Estudiantes estudiante)
+        public static void crearNotas(List<Estudiantes> lsEstudiante)
         {
 
             if (lsEstudiante.Count == 0)
@@ -187,7 +184,7 @@ namespace registroNotas.Entities
                                             }
                                             else
                                             {
-                                                double sumParciales = (parcial1 + parcial2 + parcial3 / 3) * 0.60;
+                                                double sumParciales = ((parcial1 + parcial2 + parcial3 )/3)* 0.60 ;
                                                 lsEstudiante[i].Parciales = sumParciales;
                                             }
 
@@ -234,7 +231,7 @@ namespace registroNotas.Entities
                                             }
                                             else
                                             {
-                                                double sumaQuices = (quiz1 + quiz2 + quiz3 + quiz4 / 4) * 0.25;
+                                                double sumaQuices = ((quiz1 + quiz2 + quiz3 + quiz4 )/ 4) * 0.25;
                                                 lsEstudiante[i].Quices = sumaQuices;
                                             }
                                         }
@@ -277,7 +274,7 @@ namespace registroNotas.Entities
                                             }
                                             else
                                             {
-                                                double sumTrabajos = (trabajo1 + trabajo2  / 2) * 0.15;
+                                                double sumTrabajos = ((trabajo1 + trabajo2)/ 2) * 0.15;
                                                 lsEstudiante[i].Trabajos = sumTrabajos;
                                             }
                                         }
