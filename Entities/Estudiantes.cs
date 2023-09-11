@@ -18,7 +18,8 @@ namespace registroNotas.Entities
         private double parciales;
         private double quices;
         private double trabajos;
-        public Estudiantes(){
+        public Estudiantes()
+        {
         }
         public Estudiantes(int cod, String nombre, String correo, int edad, String direccion)
         {
@@ -104,7 +105,7 @@ namespace registroNotas.Entities
                             Console.WriteLine("{0,10} {1,10} {2,10} {3,10} {4,10}", "codigo", "nom", "correo", "edad", "direccion");
                         }
                         else
-                        {
+                        {   Console.Clear();
                             estudiante = new Estudiantes(int.Parse(cod), nom, correo, int.Parse(edad), direccion);
                             lsEstudiantes.Add(estudiante);
                             agregados = agregados + 1;
@@ -183,9 +184,10 @@ namespace registroNotas.Entities
                                                 Console.WriteLine("Las notas permitidas para los parciales son mayores a 0 y menores a 10");
                                             }
                                             else
-                                            {
-                                                double sumParciales = ((parcial1 + parcial2 + parcial3 )/3)* 0.60 ;
+                                            {   Console.Clear();
+                                                double sumParciales = ((parcial1 + parcial2 + parcial3) / 3) * 0.60;
                                                 lsEstudiante[i].Parciales = sumParciales;
+                                                Console.WriteLine("Parciales registrados con exito");
                                             }
 
                                         }
@@ -230,9 +232,11 @@ namespace registroNotas.Entities
                                                 Console.WriteLine("Las notas permitidas para los parciales son mayores a 0 y menores a 10");
                                             }
                                             else
-                                            {
-                                                double sumaQuices = ((quiz1 + quiz2 + quiz3 + quiz4 )/ 4) * 0.25;
+                                            {   
+                                                Console.Clear();
+                                                double sumaQuices = ((quiz1 + quiz2 + quiz3 + quiz4) / 4) * 0.25;
                                                 lsEstudiante[i].Quices = sumaQuices;
+                                                Console.WriteLine("Quices registrados con exito");
                                             }
                                         }
 
@@ -266,16 +270,18 @@ namespace registroNotas.Entities
                                             double trabajo1 = double.Parse(Console.ReadLine());
                                             Console.Write("Ingrese el segundo quiz:");
                                             double trabajo2 = double.Parse(Console.ReadLine());
-                                           
 
-                                            if (trabajo1 < 0 || trabajo1 > 10 || trabajo2 < 0 || trabajo2 > 10 )
+
+                                            if (trabajo1 < 0 || trabajo1 > 10 || trabajo2 < 0 || trabajo2 > 10)
                                             {
                                                 Console.WriteLine("Las notas permitidas para los parciales son mayores a 0 y menores a 10");
                                             }
                                             else
-                                            {
-                                                double sumTrabajos = ((trabajo1 + trabajo2)/ 2) * 0.15;
+                                            {   
+                                                Console.Clear();
+                                                double sumTrabajos = ((trabajo1 + trabajo2) / 2) * 0.15;
                                                 lsEstudiante[i].Trabajos = sumTrabajos;
+                                                Console.WriteLine("Trabajos registrados con exito");
                                             }
                                         }
 
@@ -289,6 +295,7 @@ namespace registroNotas.Entities
                         }
                         else if (opc == 4)
                         {
+                            Console.Clear();
                             flag = false;
                         }
                         else
@@ -310,11 +317,45 @@ namespace registroNotas.Entities
         {
             if (lsEstudiantes.Count != 0)
             {
-                for (int i = 0; i < lsEstudiantes.Count; i++)
+                bool flag = true;
+                while (flag)
                 {
-                    Console.WriteLine("Codigo:" + lsEstudiantes[i].cod);
-                    Console.WriteLine("Codigo:" + lsEstudiantes[i].parciales);
 
+                    try
+                    {
+                        Console.WriteLine("Mostrar Estudiantes");
+                        Console.WriteLine("1.Mostrar Todos los estudianes");
+                        Console.WriteLine("2. Mostrar Paginas de a 10 estudiantes");
+                        Console.WriteLine("3. Volver");
+                        Console.WriteLine("Ingrese la opcion que desea realizar:");
+                        int? opc = int.Parse(Console.ReadLine());
+                        if (opc == 1)
+                        {
+                            Console.WriteLine("Lista de estudiantes");
+                            for (int i = 0; i < lsEstudiantes.Count; i++)
+                            {
+                                Console.WriteLine(" Codigo: " + lsEstudiantes[i].cod + " Nota Parcial: " + lsEstudiantes[i].parciales);
+                            }
+
+
+                        }
+                        else if (opc == 2)
+                        {
+                            Console.WriteLine("Paginado de estudiantes ");
+
+                        }
+                        else if (opc == 3)
+                        {
+                            Console.Clear();
+                            flag= false;
+                        }
+
+                    }
+                    catch (Exception)
+                    {
+
+                        Console.WriteLine("Ingrese una opcion valida a realizar");
+                    }
                 }
             }
             else
