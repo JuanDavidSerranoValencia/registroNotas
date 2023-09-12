@@ -15,11 +15,12 @@ namespace registroNotas.Entities
         private String correo;
         private int edad;
         private String direccion;
-        private double parciales;
-        private double quices;
-        private double trabajos;
+        private List<double> parciales;
+        private List<double> quices;
+        private List<double>  trabajos;
         public Estudiantes()
         {
+
         }
         public Estudiantes(int cod, String nombre, String correo, int edad, String direccion)
         {
@@ -28,9 +29,9 @@ namespace registroNotas.Entities
             this.correo = correo;
             this.edad = edad;
             this.direccion = direccion;
-            this.parciales = 0;
-            this.quices = 0;
-            this.trabajos = 0;
+            this.parciales = new List<double>();
+            this.quices = new List<double>();
+            this.trabajos = new List<double>();
         }
 
         public int Cod
@@ -63,17 +64,17 @@ namespace registroNotas.Entities
             set { direccion = value; }
         }
 
-        public double Parciales
+        public List<double> Parciales
         {
             get { return parciales; }
             set { parciales = value; }
         }
-        public double Quices
+        public List<double> Quices
         {
             get { return quices; }
             set { quices = value; }
         }
-        public double Trabajos
+        public List<double> Trabajos
         {
             get { return trabajos; }
             set { trabajos = value; }
@@ -105,7 +106,8 @@ namespace registroNotas.Entities
                             Console.WriteLine("{0,10} {1,10} {2,10} {3,10} {4,10}", "codigo", "nom", "correo", "edad", "direccion");
                         }
                         else
-                        {   Console.Clear();
+                        {
+                            Console.Clear();
                             estudiante = new Estudiantes(int.Parse(cod), nom, correo, int.Parse(edad), direccion);
                             lsEstudiantes.Add(estudiante);
                             agregados = agregados + 1;
@@ -136,7 +138,7 @@ namespace registroNotas.Entities
                 Console.WriteLine("No hay estudiantes registrados por favor registre algun estudiante");
             }
             else
-            {
+            {   Estudiantes estudiantes= new Estudiantes();
                 bool flag = true;
                 while (flag)
                 {
@@ -166,7 +168,7 @@ namespace registroNotas.Entities
                                 {
                                     if (lsEstudiante[i].cod == cod)
                                     {
-                                        if (lsEstudiante[i].Parciales != 0)
+                                        if (lsEstudiante[i].Parciales.Count != 0)
                                         {
                                             Console.WriteLine("El estudiante ya tiene sus notas registradas");
                                         }
@@ -184,9 +186,13 @@ namespace registroNotas.Entities
                                                 Console.WriteLine("Las notas permitidas para los parciales son mayores a 0 y menores a 10");
                                             }
                                             else
-                                            {   Console.Clear();
-                                                double sumParciales = ((parcial1 + parcial2 + parcial3) / 3) * 0.60;
-                                                lsEstudiante[i].Parciales = sumParciales;
+                                            {
+                                                Console.Clear();
+                                                //double sumParciales = ((parcial1 + parcial2 + parcial3) / 3) * 0.60;
+                                                //lsEstudiante[i].Parciales = sumParciales;
+                                                lsEstudiante[i].Parciales.Add(parcial1);
+                                                lsEstudiante[i].Parciales.Add(parcial2);
+                                                lsEstudiante[i].Parciales.Add(parcial3);
                                                 Console.WriteLine("Parciales registrados con exito");
                                             }
 
@@ -212,7 +218,7 @@ namespace registroNotas.Entities
                                 {
                                     if (lsEstudiante[i].cod == cod)
                                     {
-                                        if (lsEstudiante[i].Parciales != 0)
+                                        if (lsEstudiante[i].Parciales.Count != 0)
                                         {
                                             Console.WriteLine("El estudiante ya tiene sus notas registradas");
                                         }
@@ -232,10 +238,13 @@ namespace registroNotas.Entities
                                                 Console.WriteLine("Las notas permitidas para los parciales son mayores a 0 y menores a 10");
                                             }
                                             else
-                                            {   
+                                            {
                                                 Console.Clear();
                                                 double sumaQuices = ((quiz1 + quiz2 + quiz3 + quiz4) / 4) * 0.25;
-                                                lsEstudiante[i].Quices = sumaQuices;
+                                                lsEstudiante[i].Quices.Add(quiz1);
+                                                lsEstudiante[i].Quices.Add(quiz2);
+                                                lsEstudiante[i].Quices.Add(quiz3);
+                                                lsEstudiante[i].Quices.Add(quiz4);
                                                 Console.WriteLine("Quices registrados con exito");
                                             }
                                         }
@@ -260,7 +269,7 @@ namespace registroNotas.Entities
                                 {
                                     if (lsEstudiante[i].cod == cod)
                                     {
-                                        if (lsEstudiante[i].Parciales != 0)
+                                        if (lsEstudiante[i].Parciales.Count != 0)
                                         {
                                             Console.WriteLine("El estudiante ya tiene sus notas registradas");
                                         }
@@ -277,11 +286,11 @@ namespace registroNotas.Entities
                                                 Console.WriteLine("Las notas permitidas para los parciales son mayores a 0 y menores a 10");
                                             }
                                             else
-                                            {   
+                                            {
                                                 Console.Clear();
-                                                double sumTrabajos = ((trabajo1 + trabajo2) / 2) * 0.15;
-                                                lsEstudiante[i].Trabajos = sumTrabajos;
-                                                Console.WriteLine("Trabajos registrados con exito");
+                                                estudiantes.Trabajos.Add(trabajo1);
+                                                estudiantes.Trabajos.Add(trabajo2);
+                                                Console.WriteLine("Trabajos Agregados con exito");
                                             }
                                         }
 
@@ -323,6 +332,7 @@ namespace registroNotas.Entities
 
                     try
                     {
+
                         Console.WriteLine("Mostrar Estudiantes");
                         Console.WriteLine("1.Mostrar Todos los estudianes");
                         Console.WriteLine("2. Mostrar Paginas de a 10 estudiantes");
@@ -334,7 +344,7 @@ namespace registroNotas.Entities
                             Console.WriteLine("Lista de estudiantes");
                             for (int i = 0; i < lsEstudiantes.Count; i++)
                             {
-                                Console.WriteLine(" Codigo: " + lsEstudiantes[i].cod + " Nota Parcial: " + lsEstudiantes[i].parciales);
+                                Console.WriteLine(" Codigo: " + lsEstudiantes[i].cod + " Nombre: " + lsEstudiantes[i].nombre + " Nota Parcial: "+ " Nota Parcial: " + lsEstudiantes[i].parciales.Count);
                             }
 
 
@@ -347,7 +357,7 @@ namespace registroNotas.Entities
                         else if (opc == 3)
                         {
                             Console.Clear();
-                            flag= false;
+                            flag = false;
                         }
 
                     }
