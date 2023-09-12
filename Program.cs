@@ -12,7 +12,7 @@ internal class Program
         List<Estudiantes> listaEstudiantes = new List<Estudiantes>();
         bool flag = true;
         while (flag)
-        {    Console.Clear();
+        {   
             Console.WriteLine("\nRegistro Notas Estudiantes");
             Console.WriteLine("1 Registrar estudiantes");
             Console.WriteLine("2 Registrar Notas");

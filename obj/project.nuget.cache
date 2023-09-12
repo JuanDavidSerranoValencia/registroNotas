@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "0f/KcFRsTb/JsVYlyb0YkAivB/NA0YhuyTNJ/IUwS6G86uYwG0yTV0ttQ9UwiXKdLEZ0r+h3X6m7M1tEKbs1wg==",
+  "dgSpecHash": "HBdNI1jYr7fid9y9IHK41+tLmV8mWF8xWU0vQcG6s3Wg9Z2Sk5pKTJHMURpm3luHxrVpaF8zy0mo/Bi/i5vKpA==",
   "success": true,
-  "projectFilePath": "c:\\Users\\PC\\Documents\\archivos.net\\registroNotas\\registroNotas.csproj",
+  "projectFilePath": "/workspaces/registroNotas/registroNotas.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

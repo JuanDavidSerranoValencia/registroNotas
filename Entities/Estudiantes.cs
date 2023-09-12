@@ -188,8 +188,6 @@ namespace registroNotas.Entities
                                             else
                                             {
                                                 Console.Clear();
-                                                //double sumParciales = ((parcial1 + parcial2 + parcial3) / 3) * 0.60;
-                                                //lsEstudiante[i].Parciales = sumParciales;
                                                 lsEstudiante[i].Parciales.Add(parcial1);
                                                 lsEstudiante[i].Parciales.Add(parcial2);
                                                 lsEstudiante[i].Parciales.Add(parcial3);
@@ -218,7 +216,7 @@ namespace registroNotas.Entities
                                 {
                                     if (lsEstudiante[i].cod == cod)
                                     {
-                                        if (lsEstudiante[i].Parciales.Count != 0)
+                                        if (lsEstudiante[i].Quices.Count != 0)
                                         {
                                             Console.WriteLine("El estudiante ya tiene sus notas registradas");
                                         }
@@ -240,7 +238,7 @@ namespace registroNotas.Entities
                                             else
                                             {
                                                 Console.Clear();
-                                                double sumaQuices = ((quiz1 + quiz2 + quiz3 + quiz4) / 4) * 0.25;
+            
                                                 lsEstudiante[i].Quices.Add(quiz1);
                                                 lsEstudiante[i].Quices.Add(quiz2);
                                                 lsEstudiante[i].Quices.Add(quiz3);
@@ -269,15 +267,15 @@ namespace registroNotas.Entities
                                 {
                                     if (lsEstudiante[i].cod == cod)
                                     {
-                                        if (lsEstudiante[i].Parciales.Count != 0)
+                                        if (lsEstudiante[i].Trabajos.Count != 0)
                                         {
                                             Console.WriteLine("El estudiante ya tiene sus notas registradas");
                                         }
                                         else
                                         {
-                                            Console.Write("Ingrese el primer quiz:");
+                                            Console.Write("Ingrese el primer Trabajo");
                                             double trabajo1 = double.Parse(Console.ReadLine());
-                                            Console.Write("Ingrese el segundo quiz:");
+                                            Console.Write("Ingrese el segundo Trabajo:");
                                             double trabajo2 = double.Parse(Console.ReadLine());
 
 
@@ -288,8 +286,8 @@ namespace registroNotas.Entities
                                             else
                                             {
                                                 Console.Clear();
-                                                estudiantes.Trabajos.Add(trabajo1);
-                                                estudiantes.Trabajos.Add(trabajo2);
+                                                lsEstudiante[i].Trabajos.Add(trabajo1);
+                                                lsEstudiante[i].Trabajos.Add(trabajo2);
                                                 Console.WriteLine("Trabajos Agregados con exito");
                                             }
                                         }
