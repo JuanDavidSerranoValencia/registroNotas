@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Reflection.Metadata;
 using System.Runtime.InteropServices;
+using registroNotas;
 using registroNotas.Entities;
 
 internal class Program
@@ -13,16 +14,10 @@ internal class Program
         bool flag = true;
         while (flag)
         {   
-            Console.WriteLine("\nRegistro Notas Estudiantes");
-            Console.WriteLine("1 Registrar estudiantes");
-            Console.WriteLine("2 Registrar Notas");
-            Console.WriteLine("3 Mostrar Paginado ");
-            Console.WriteLine("4 Salir");
+           
             try
-            {
-
-                Console.Write("Ingrese la opcion que desea realizar:");
-                int  ? opc = int.Parse(Console.ReadLine());
+            {   
+                int ? opc = MisFunciones.menuPrincipal();
                 if (opc == 1)
                 {
                     Console.Clear();

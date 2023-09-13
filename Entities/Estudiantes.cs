@@ -138,27 +138,23 @@ namespace registroNotas.Entities
                 Console.WriteLine("No hay estudiantes registrados por favor registre algun estudiante");
             }
             else
-            {   Estudiantes estudiantes= new Estudiantes();
+            { 
+                Estudiantes estudiantes= new Estudiantes();
                 bool flag = true;
                 while (flag)
                 {
                     try
                     {
-                        Console.WriteLine("\nRegistro de notas");
-                        Console.WriteLine("1.Parciales");
-                        Console.WriteLine("2.Quices");
-                        Console.WriteLine("3.Trabajos");
-                        Console.WriteLine("4.Salir");
-                        Console.Write("Ingrese la opcion que desea realizar:");
-                        int? opc = int.Parse(Console.ReadLine());
-                        Console.WriteLine("\nRegistro de parciales");
+                        int ? opc = MisFunciones.menuEstudiantes();
                         List<int> codigos = new List<int>();
                         for (int i = 0; i < lsEstudiante.Count; i++)
                         {
                             codigos.Add(lsEstudiante[i].cod);
                         }
                         if (opc == 1)
-                        {
+                        {   
+                            Console.Clear();
+                            Console.WriteLine("\nRegistro de parciales");
                             Console.Write("Ingrese el codigo del estudiante al que desea registrar Parciales:");
                             int cod = int.Parse(Console.ReadLine());
                             int index = codigos.IndexOf(cod);
@@ -171,9 +167,7 @@ namespace registroNotas.Entities
                                         if (lsEstudiante[i].Parciales.Count != 0)
                                         {
                                             Console.WriteLine("El estudiante ya tiene sus notas registradas");
-                                        }
-                                        else
-                                        {
+                                        }else{ 
                                             Console.Write("Ingrese el primer parcial:");
                                             double parcial1 = double.Parse(Console.ReadLine());
                                             Console.Write("Ingrese el segundo parcial:");
@@ -206,7 +200,7 @@ namespace registroNotas.Entities
 
                         }
                         else if (opc == 2)
-                        {
+                        {   Console.Clear();
                             Console.Write("Ingrese el codigo del estudiante al que desea registrar quices:");
                             int cod = int.Parse(Console.ReadLine());
                             int index = codigos.IndexOf(cod);
@@ -228,7 +222,7 @@ namespace registroNotas.Entities
                                             double quiz2 = double.Parse(Console.ReadLine());
                                             Console.Write("Ingrese el tercer quiz:");
                                             double quiz3 = double.Parse(Console.ReadLine());
-                                            Console.Write("Ingrese el tercer quiz:");
+                                            Console.Write("Ingrese el cuarto quiz:");
                                             double quiz4 = double.Parse(Console.ReadLine());
 
                                             if (quiz1 < 0 || quiz1 > 10 || quiz2 < 0 || quiz2 > 10 || quiz3 < 0 || quiz3 > 10 || quiz4 < 0 || quiz4 > 10)
@@ -257,7 +251,7 @@ namespace registroNotas.Entities
 
                         }
                         else if (opc == 3)
-                        {
+                        {   Console.Clear();
                             Console.Write("Ingrese el codigo del estudiante al que desea registrar trabajos:");
                             int cod = int.Parse(Console.ReadLine());
                             int index = codigos.IndexOf(cod);
@@ -323,32 +317,26 @@ namespace registroNotas.Entities
         public static void mostrarEstudiantes(List<Estudiantes> lsEstudiantes)
         {
             if (lsEstudiantes.Count != 0)
-            {
+            {  
                 bool flag = true;
                 while (flag)
                 {
 
                     try
                     {
-
-                        Console.WriteLine("Mostrar Estudiantes");
-                        Console.WriteLine("1.Mostrar Todos los estudianes");
-                        Console.WriteLine("2. Mostrar Paginas de a 10 estudiantes");
-                        Console.WriteLine("3. Volver");
-                        Console.WriteLine("Ingrese la opcion que desea realizar:");
-                        int? opc = int.Parse(Console.ReadLine());
+                        int ? opc = MisFunciones.menuVerEstudiantes();
                         if (opc == 1)
-                        {
+                        {   Console.Clear();
                             Console.WriteLine("Lista de estudiantes");
                             for (int i = 0; i < lsEstudiantes.Count; i++)
-                            {
-                                Console.WriteLine(" Codigo: " + lsEstudiantes[i].cod + " Nombre: " + lsEstudiantes[i].nombre + " Nota Parcial: "+ " Nota Parcial: " + lsEstudiantes[i].parciales.Count);
+                            {   Console.WriteLine("\n Lista de Estudiantes");
+                                Console.WriteLine(" Codigo: " + lsEstudiantes[i].cod + " Nombre: " + lsEstudiantes[i].nombre + " Nota Parcial: " + lsEstudiantes[i].parciales.Count);
                             }
 
 
                         }
                         else if (opc == 2)
-                        {
+                        {   Console.Clear();
                             Console.WriteLine("Paginado de estudiantes ");
 
                         }
@@ -356,13 +344,15 @@ namespace registroNotas.Entities
                         {
                             Console.Clear();
                             flag = false;
+                        }else{
+                            Console.WriteLine("Ingrese una opcion valida");
                         }
 
                     }
                     catch (Exception)
                     {
 
-                        Console.WriteLine("Ingrese una opcion valida a realizar");
+                        Console.WriteLine("Ingrese datos validos");
                     }
                 }
             }
