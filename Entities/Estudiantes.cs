@@ -86,12 +86,6 @@ namespace registroNotas.Entities
             int agregados = 0;
             while (agregados < cantidad)
             {
-                List<int> idRegistrados = new List<int>();
-                for (int i = 0; i < lsEstudiantes.Count; i++)
-                {
-                    idRegistrados.Add(lsEstudiantes[i].cod);
-                }
-
                 try
                 {
                     Console.Write("\nIngrese el Codigo del estudiante:");
@@ -109,25 +103,26 @@ namespace registroNotas.Entities
                         if (nom.Length <= 0 || nom.Length > 41 || correo.Length <= 0 || correo.Length > 36 || edad.Length <= 0 || edad.Length > 36 || direccion.Length <= 0 || direccion.Length > 36)
                         {
                             Console.WriteLine("Los datos no corresponden con las longitudes especificas");
-                            Console.WriteLine("{0,10} {1,10} {2,10} {3,10} {4,10}", "codigo", "nom", "correo", "edad", "direccion");
+
                         }
                         else
-                        {
-                            int index = idRegistrados.IndexOf(cod);
-                            if (index == -1)
+                        {   //bool resultado = lsEstudiantes.Exists(x => x.cod == cod); Retorna true si existe false si no existe
+                            //bool existe = lsEstudiantes.FirstOrDefault(x => x.cod == estudiante.cod).cod == estudiante.cod;
+
+                            if (lsEstudiantes.Exists(estu => estu.cod == cod))
+                            {
+                                Console.WriteLine("El id que desea imgresar ya se encuentra registrado ");
+
+                            }
+                            else
                             {
                                 Console.Clear();
                                 estudiante = new Estudiantes(cod, nom, correo, int.Parse(edad), direccion);
                                 lsEstudiantes.Add(estudiante);
                                 agregados = agregados + 1;
                                 Console.WriteLine("Estudiante creado con exito");
+
                             }
-                            else{
-                                Console.WriteLine("El id que desea imgresar ya se encuentra registrado ");
-                            }
-
-
-
                         }
 
                     }
@@ -136,7 +131,6 @@ namespace registroNotas.Entities
                         Console.WriteLine("Verifique los datos ingresados correspondan con lo solicitado");
 
                     }
-
 
                 }
                 catch (Exception e)
@@ -162,20 +156,14 @@ namespace registroNotas.Entities
                 {
                     try
                     {
-                        int? opc = MisFunciones.menuEstudiantes();
-                        List<int> codigos = new List<int>();
-                        for (int i = 0; i < lsEstudiante.Count; i++)
-                        {
-                            codigos.Add(lsEstudiante[i].cod);
-                        }
+                        int  opc = MisFunciones.menuEstudiantes();
                         if (opc == 1)
                         {
                             Console.Clear();
                             Console.WriteLine("\nRegistro de parciales");
                             Console.Write("Ingrese el codigo del estudiante al que desea registrar Parciales:");
                             int cod = int.Parse(Console.ReadLine());
-                            int index = codigos.IndexOf(cod);
-                            if (index != -1)
+                            if (lsEstudiante.Exists(est => est.cod == cod))
                             {
                                 for (int i = 0; i < lsEstudiante.Count; i++)
                                 {
@@ -223,8 +211,8 @@ namespace registroNotas.Entities
                             Console.Clear();
                             Console.Write("Ingrese el codigo del estudiante al que desea registrar quices:");
                             int cod = int.Parse(Console.ReadLine());
-                            int index = codigos.IndexOf(cod);
-                            if (index != -1)
+
+                            if (lsEstudiante.Exists(x => x.cod == cod))
                             {
                                 for (int i = 0; i < lsEstudiante.Count; i++)
                                 {
@@ -275,8 +263,7 @@ namespace registroNotas.Entities
                             Console.Clear();
                             Console.Write("Ingrese el codigo del estudiante al que desea registrar trabajos:");
                             int cod = int.Parse(Console.ReadLine());
-                            int index = codigos.IndexOf(cod);
-                            if (index != -1)
+                            if (lsEstudiante.FirstOrDefault(x => x.cod == estudiantes.cod).cod == cod)
                             {
                                 for (int i = 0; i < lsEstudiante.Count; i++)
                                 {
