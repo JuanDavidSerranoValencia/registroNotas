@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "HBdNI1jYr7fid9y9IHK41+tLmV8mWF8xWU0vQcG6s3Wg9Z2Sk5pKTJHMURpm3luHxrVpaF8zy0mo/Bi/i5vKpA==",
+  "dgSpecHash": "IqyiuBnFrVgntOMTEzEa4Xkt5YenHo9Z1yWW1TX/WAeDaVXprf+bO8QlIeaDuaS092e7RoWXLu42jYde6dN6bQ==",
   "success": true,
-  "projectFilePath": "/workspaces/registroNotas/registroNotas.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "C:\\Users\\APM02-68\\Documents\\projectsNetcore\\registroNotas\\registroNotas.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\APM02-68\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512"
+  ],
   "logs": []
 }

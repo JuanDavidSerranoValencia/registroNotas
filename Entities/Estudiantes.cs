@@ -17,7 +17,7 @@ namespace registroNotas.Entities
         private String direccion;
         private List<double> parciales;
         private List<double> quices;
-        private List<double>  trabajos;
+        private List<double> trabajos;
         public Estudiantes()
         {
 
@@ -86,10 +86,16 @@ namespace registroNotas.Entities
             int agregados = 0;
             while (agregados < cantidad)
             {
+                List<int> idRegistrados = new List<int>();
+                for (int i = 0; i < lsEstudiantes.Count; i++)
+                {
+                    idRegistrados.Add(lsEstudiantes[i].cod);
+                }
+
                 try
                 {
                     Console.Write("\nIngrese el Codigo del estudiante:");
-                    String? cod = Console.ReadLine();
+                    int cod = int.Parse(Console.ReadLine());
                     Console.Write("Ingrese el nombre del estudiante:");
                     String? nom = Console.ReadLine();
                     Console.Write($"Ingrese el correo del estudiante {nom}:");
@@ -98,20 +104,30 @@ namespace registroNotas.Entities
                     String? edad = Console.ReadLine();
                     Console.Write($"Ingrese la direccion del estudiante {nom}:");
                     String? direccion = Console.ReadLine();
-                    if (edad != null && edad != "" && nom != null && nom != "" && cod != null && cod != "" && correo != null && correo != "" && direccion != null && direccion != "")
+                    if (edad != null && edad != "" && nom != null && nom != "" && correo != null && correo != "" && direccion != null && direccion != "")
                     {
-                        if (cod.Length <= 0 || cod.Length > 16 || nom.Length <= 0 || nom.Length > 41 || correo.Length <= 0 || correo.Length > 36 || edad.Length <= 0 || edad.Length > 36 || direccion.Length <= 0 || direccion.Length > 36)
+                        if (nom.Length <= 0 || nom.Length > 41 || correo.Length <= 0 || correo.Length > 36 || edad.Length <= 0 || edad.Length > 36 || direccion.Length <= 0 || direccion.Length > 36)
                         {
                             Console.WriteLine("Los datos no corresponden con las longitudes especificas");
                             Console.WriteLine("{0,10} {1,10} {2,10} {3,10} {4,10}", "codigo", "nom", "correo", "edad", "direccion");
                         }
                         else
                         {
-                            Console.Clear();
-                            estudiante = new Estudiantes(int.Parse(cod), nom, correo, int.Parse(edad), direccion);
-                            lsEstudiantes.Add(estudiante);
-                            agregados = agregados + 1;
-                            Console.WriteLine("Estudiante creado con exito");
+                            int index = idRegistrados.IndexOf(cod);
+                            if (index == -1)
+                            {
+                                Console.Clear();
+                                estudiante = new Estudiantes(cod, nom, correo, int.Parse(edad), direccion);
+                                lsEstudiantes.Add(estudiante);
+                                agregados = agregados + 1;
+                                Console.WriteLine("Estudiante creado con exito");
+                            }
+                            else{
+                                Console.WriteLine("El id que desea imgresar ya se encuentra registrado ");
+                            }
+
+
+
                         }
 
                     }
@@ -120,6 +136,7 @@ namespace registroNotas.Entities
                         Console.WriteLine("Verifique los datos ingresados correspondan con lo solicitado");
 
                     }
+
 
                 }
                 catch (Exception e)
@@ -138,21 +155,21 @@ namespace registroNotas.Entities
                 Console.WriteLine("No hay estudiantes registrados por favor registre algun estudiante");
             }
             else
-            { 
-                Estudiantes estudiantes= new Estudiantes();
+            {
+                Estudiantes estudiantes = new Estudiantes();
                 bool flag = true;
                 while (flag)
                 {
                     try
                     {
-                        int ? opc = MisFunciones.menuEstudiantes();
+                        int? opc = MisFunciones.menuEstudiantes();
                         List<int> codigos = new List<int>();
                         for (int i = 0; i < lsEstudiante.Count; i++)
                         {
                             codigos.Add(lsEstudiante[i].cod);
                         }
                         if (opc == 1)
-                        {   
+                        {
                             Console.Clear();
                             Console.WriteLine("\nRegistro de parciales");
                             Console.Write("Ingrese el codigo del estudiante al que desea registrar Parciales:");
@@ -167,7 +184,9 @@ namespace registroNotas.Entities
                                         if (lsEstudiante[i].Parciales.Count != 0)
                                         {
                                             Console.WriteLine("El estudiante ya tiene sus notas registradas");
-                                        }else{ 
+                                        }
+                                        else
+                                        {
                                             Console.Write("Ingrese el primer parcial:");
                                             double parcial1 = double.Parse(Console.ReadLine());
                                             Console.Write("Ingrese el segundo parcial:");
@@ -200,7 +219,8 @@ namespace registroNotas.Entities
 
                         }
                         else if (opc == 2)
-                        {   Console.Clear();
+                        {
+                            Console.Clear();
                             Console.Write("Ingrese el codigo del estudiante al que desea registrar quices:");
                             int cod = int.Parse(Console.ReadLine());
                             int index = codigos.IndexOf(cod);
@@ -232,7 +252,7 @@ namespace registroNotas.Entities
                                             else
                                             {
                                                 Console.Clear();
-            
+
                                                 lsEstudiante[i].Quices.Add(quiz1);
                                                 lsEstudiante[i].Quices.Add(quiz2);
                                                 lsEstudiante[i].Quices.Add(quiz3);
@@ -251,7 +271,8 @@ namespace registroNotas.Entities
 
                         }
                         else if (opc == 3)
-                        {   Console.Clear();
+                        {
+                            Console.Clear();
                             Console.Write("Ingrese el codigo del estudiante al que desea registrar trabajos:");
                             int cod = int.Parse(Console.ReadLine());
                             int index = codigos.IndexOf(cod);
@@ -317,26 +338,29 @@ namespace registroNotas.Entities
         public static void mostrarEstudiantes(List<Estudiantes> lsEstudiantes)
         {
             if (lsEstudiantes.Count != 0)
-            {  
+            {
                 bool flag = true;
                 while (flag)
                 {
 
                     try
                     {
-                        int ? opc = MisFunciones.menuVerEstudiantes();
+                        int? opc = MisFunciones.menuVerEstudiantes();
                         if (opc == 1)
-                        {   Console.Clear();
+                        {
+                            Console.Clear();
                             Console.WriteLine("Lista de estudiantes");
                             for (int i = 0; i < lsEstudiantes.Count; i++)
-                            {   Console.WriteLine("\n Lista de Estudiantes");
+                            {
+                                Console.WriteLine("\n Lista de Estudiantes");
                                 Console.WriteLine(" Codigo: " + lsEstudiantes[i].cod + " Nombre: " + lsEstudiantes[i].nombre + " Nota Parcial: " + lsEstudiantes[i].parciales.Count);
                             }
 
 
                         }
                         else if (opc == 2)
-                        {   Console.Clear();
+                        {
+                            Console.Clear();
                             Console.WriteLine("Paginado de estudiantes ");
 
                         }
@@ -344,7 +368,9 @@ namespace registroNotas.Entities
                         {
                             Console.Clear();
                             flag = false;
-                        }else{
+                        }
+                        else
+                        {
                             Console.WriteLine("Ingrese una opcion valida");
                         }
 
