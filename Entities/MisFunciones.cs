@@ -15,7 +15,8 @@ public class MisFunciones
         Console.WriteLine("1 Registrar estudiantes");
         Console.WriteLine("2 Registrar Notas");
         Console.WriteLine("3 Mostrar Paginado ");
-        Console.WriteLine("4 Salir");
+        Console.WriteLine("4 Eliminar Estudiante");
+        Console.WriteLine("5 Salir");
         Console.Write("Ingrese la opcion que desea realizar:");
         return int.Parse(Console.ReadLine());
     }

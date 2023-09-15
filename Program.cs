@@ -39,7 +39,12 @@ internal class Program
                     Estudiantes.mostrarEstudiantes(listaEstudiantes);
                     
                 }
-                else if (opc == 4)
+                else if(opc ==4){
+                    Console.Clear();
+                    Console.WriteLine("ELIMINAR ESTUDIANTES");
+                    Estudiantes.deleteEstudiante(listaEstudiantes);
+                }
+                else if (opc == 5)
                 {
                     Console.Clear();
                     Console.WriteLine("SALIENDO DEL PROGRAMA..");
