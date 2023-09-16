@@ -16,7 +16,8 @@ public class MisFunciones
         Console.WriteLine("2 Registrar Notas");
         Console.WriteLine("3 Mostrar Paginado ");
         Console.WriteLine("4 Eliminar Estudiante");
-        Console.WriteLine("5 Salir");
+        Console.WriteLine("5 Actualizar");
+        Console.WriteLine("6 Salir");
         Console.Write("Ingrese la opcion que desea realizar:");
         return int.Parse(Console.ReadLine());
     }
@@ -36,9 +37,17 @@ public class MisFunciones
     {
         Console.WriteLine("\nMostrar Estudiantes");
         Console.WriteLine("1.Mostrar Todos los estudianes");
-        Console.WriteLine("2. Mostrar Paginas de a 10 estudiantes");
+        Console.WriteLine("2.Mostrar Paginas de a 10 estudiantes");
         Console.WriteLine("3. Volver");
         Console.Write("Ingrese la opcion que desea realizar:");
+        return int.Parse(Console.ReadLine());
+    }
+
+    public static int menuActualizar()
+    {
+        Console.WriteLine("1.Actualizar Estudiante");
+        Console.WriteLine("2.Actualizar Notas Estudiante");
+        Console.WriteLine("3. Volver");
         return int.Parse(Console.ReadLine());
     }
 

@@ -110,7 +110,7 @@ namespace registroNotas.Entities
                         {   //bool resultado = lsEstudiantes.Exists(x => x.cod == cod); Retorna true si existe false si no existe
                             //bool existe = lsEstudiantes.FirstOrDefault(x => x.cod == estudiante.cod).cod == estudiante.cod;
 
-                            if (lsEstudiantes.Exists(estu => estu.cod==int.Parse(cod)))
+                            if (lsEstudiantes.Exists(estu => estu.cod == int.Parse(cod)))
                             {
                                 Console.WriteLine("El id que desea imgresar ya se encuentra registrado ");
 
@@ -380,6 +380,37 @@ namespace registroNotas.Entities
             {
                 Console.WriteLine("No hay estudiantes registrados");
             }
+        }
+        public static void updateEstudiante(List<Estudiantes> lsEstudiantes)
+        {
+
+            if (lsEstudiantes.Count != 0)
+            {
+                try
+                {
+                    int opc = MisFunciones.menuActualizar();
+                    switch (opc)
+                    {
+                        case 1:
+                            break;
+                        case 2:
+                            break;
+                        case 3:
+                            break;
+                        default:
+                            Console.WriteLine("Ingrese un valor valido");
+                            break;
+
+                    }
+                }catch (Exception e){
+                    Console.WriteLine("Ingrese datos validos");
+                }
+            }
+            else
+            {
+                Console.WriteLine("No hay estudiantes para actualizar");
+            }
+
         }
 
     }

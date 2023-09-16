@@ -13,11 +13,11 @@ internal class Program
         List<Estudiantes> listaEstudiantes = new List<Estudiantes>();
         bool flag = true;
         while (flag)
-        {   
-           
+        {
+
             try
-            {   
-                int ? opc = MisFunciones.menuPrincipal();
+            {
+                int? opc = MisFunciones.menuPrincipal();
                 if (opc == 1)
                 {
                     Console.Clear();
@@ -30,21 +30,28 @@ internal class Program
                     Console.Clear();
                     Console.WriteLine("REGISTRO NOTAS");
                     Estudiantes.crearNotas(listaEstudiantes);
-                
+
                 }
                 else if (opc == 3)
                 {
                     Console.Clear();
                     Console.WriteLine("MOSTRAR PAGINADO");
                     Estudiantes.mostrarEstudiantes(listaEstudiantes);
-                    
+
                 }
-                else if(opc ==4){
+                else if (opc == 4)
+                {
                     Console.Clear();
                     Console.WriteLine("ELIMINAR ESTUDIANTES");
                     Estudiantes.deleteEstudiante(listaEstudiantes);
                 }
                 else if (opc == 5)
+                {
+                    Console.Clear();
+                    Console.WriteLine("ACTUALIZAR DATOS");
+                    Estudiantes.updateEstudiante(listaEstudiantes);
+                }
+                else if (opc == 6)
                 {
                     Console.Clear();
                     Console.WriteLine("SALIENDO DEL PROGRAMA..");
