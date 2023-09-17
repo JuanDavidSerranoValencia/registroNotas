@@ -22,7 +22,7 @@ public class MisFunciones
         return int.Parse(Console.ReadLine());
     }
 
-    public static int menuEstudiantes()
+    public static int menuEstudiantes()  
     {
         Console.WriteLine("\nRegistro de notas");
         Console.WriteLine("1.Parciales");

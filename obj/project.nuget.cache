@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "4L/32+WbnJeGdHoi5VmknlTezizxem+3mWHfShN2q04dnHu1moJYrCbVFYveA/n6br4EBL65qmwPPLn758zomA==",
+  "dgSpecHash": "vpFz/O0e8ZeE2lsYwcS9tbHf3Im/1BFK+NRJALsIvTjGtg84HLtqyOw8QfZGTBXSyEmg/Q1z0AM8qvw5qer2Zw==",
   "success": true,
-  "projectFilePath": "c:\\Users\\PC\\Documents\\archivos.net\\registroNotas\\registroNotas.csproj",
+  "projectFilePath": "C:\\Users\\PC\\Documents\\archivos.net\\registroNotas\\registroNotas.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\PC\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512"
   ],

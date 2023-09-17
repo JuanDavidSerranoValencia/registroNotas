@@ -10,14 +10,16 @@ namespace registroNotas.Entities
     {
         private List<double> parciales;
         private List<double> quices;
-        private List<double>  trabajos;
+        private List<double> trabajos;
 
-        public Notas (){
+        public Notas()
+        {
 
         }
-        public Notas(List<double> parciales,List<double> quices,List<double> trabajos){
-            this.parciales= parciales;
-            this.quices= quices;
+        public Notas(List<double> parciales, List<double> quices, List<double> trabajos)
+        {
+            this.parciales = parciales;
+            this.quices = quices;
             this.trabajos = trabajos;
 
         }

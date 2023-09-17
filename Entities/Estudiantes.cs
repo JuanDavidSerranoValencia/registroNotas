@@ -228,7 +228,6 @@ namespace registroNotas.Entities
                                         else
                                         {
                                             Console.Clear();
-
                                             lsEstudiante[i].Quices.Add(quiz1);
                                             lsEstudiante[i].Quices.Add(quiz2);
                                             lsEstudiante[i].Quices.Add(quiz3);
@@ -249,7 +248,7 @@ namespace registroNotas.Entities
                             Console.Clear();
                             Console.Write("Ingrese el codigo del estudiante al que desea registrar trabajos:");
                             int cod = int.Parse(Console.ReadLine());
-                            if (lsEstudiante.FirstOrDefault(x => x.cod == estudiantes.cod).cod == cod)
+                            if (lsEstudiante.Exists(x => x.cod == cod))  
                             {
                                 for (int i = 0; i < lsEstudiante.Count; i++)
                                 {
@@ -415,44 +414,104 @@ namespace registroNotas.Entities
                                 case 2:
                                     Console.WriteLine("Actualizar Notas Estudiante");
                                     int opcActu = MisFunciones.menuEstudiantes();
-                                    if (opc == 1)
+                                    if (opcActu == 1)
                                     {
-                                        List<double> nParActu = new List<double>();
-                                        for (int i = 0; i < estuActualizar.parciales.Count; i++)
+                                        if (estuActualizar.parciales.Count != 0)
                                         {
-                                            Console.Write($"Nota parcial numero:{i + 1} : ");
-                                            double nota = double.Parse(Console.ReadLine());
+                                            List<double> nParActu = new List<double>();
+                                            for (int i = 0; i < estuActualizar.parciales.Count; i++)
+                                            {
+                                                Console.Write($"Nota parcial numero:{i + 1} : ");
+                                                double nota = double.Parse(Console.ReadLine());
+                                            }
+                                            estuActualizar.Parciales = nParActu;
+                                            Console.WriteLine("Notas Registradas con extio");
                                         }
-                                        estuActualizar.Parciales = nParActu;
+                                        else
+                                        {
+                                            Console.WriteLine("El estudiante  no tiene ninguna nota reigstrada para actualizar");
+                                            List<double> nParActu = new List<double>();
+                                            int? nroParciales = 3;
+                                            for (int i = 0; i < nroParciales; i++)
+                                            {
+                                                Console.Write($"Nota parcial numero:{i + 1} : ");
+                                                double nota = double.Parse(Console.ReadLine());
+                                                estuActualizar.Parciales.Add(nota);
+                                            }
+                                            Console.WriteLine("Notas Registradas con extio");
+                                        }
+                                    }
+                                    else if (opcActu == 2)
+                                    {
+                                        if (estuActualizar.quices.Count != 0)
+                                        {
+                                            List<double> nParActu = new List<double>();
+                                            for (int i = 0; i < estuActualizar.quices.Count; i++)
+                                            {
+                                                Console.Write($"Nota quiz numero:{i + 1} : ");
+                                                double nota = double.Parse(Console.ReadLine());
+
+                                            }
+                                            estuActualizar.Quices = nParActu;
+                                            Console.WriteLine("Notas Registradas con extio");
+                                        }
+                                        else
+                                        {
+                                            Console.WriteLine("El estudiante  no tiene ninguna nota reigstrada para actualizar");
+                                            List<double> nParActu = new List<double>();
+                                            int? nroQuices = 4;
+                                            for (int i = 0; i < nroQuices; i++)
+                                            {
+                                                Console.Write($"Nota quiz numero:{i + 1} : ");
+                                                double nota = double.Parse(Console.ReadLine());
+                                                 estuActualizar.Quices.Add(nota);
+
+                                            }
+                                           
+                                            Console.WriteLine("Notas Registradas con extio");
+
+                                        }
+
 
                                     }
-                                    else if (opc == 2)
+                                    else if (opcActu == 3)
                                     {
-                                        List<double> nParActu = new List<double>();
-                                        for (int i = 0; i < estuActualizar.quices.Count; i++)
+                                        if (estuActualizar.trabajos.Count != 0)
                                         {
-                                            Console.Write($"Nota quiz numero:{i + 1} : ");
-                                            double nota = double.Parse(Console.ReadLine());
+                                            List<double> nParActu = new List<double>();
+                                            for (int i = 0; i < estuActualizar.trabajos.Count; i++)
+                                            {
+                                                Console.Write($"Nota trabajos numero:{i + 1} : ");
+                                                double nota = double.Parse(Console.ReadLine());
+                                            }
+                                            estuActualizar.Trabajos = nParActu;
+                                            Console.WriteLine("Notas Registradas con extio");
+
                                         }
-                                        estuActualizar.Quices = nParActu;
+                                        else
+                                        {
+                                            Console.WriteLine("El estudiante  no tiene ninguna nota reigstrada para actualizar");
+                                            List<double> nParActu = new List<double>();
+                                            int nroTrabajos = 2;
+                                            for (int i = 0; i < nroTrabajos; i++)
+                                            {
+                                                Console.Write($"Nota  trabajos numero:{i + 1} : ");
+                                                double nota = double.Parse(Console.ReadLine());
+                                                 estuActualizar.Trabajos.Add(nota);
+                                            }
+                                           
+                                            Console.WriteLine("Notas Registradas con extio");
+                                        }
 
                                     }
-                                    else if (opc == 3)
-                                    {
-                                        List<double> nParActu = new List<double>();
-                                        for (int i = 0; i < estuActualizar.trabajos.Count; i++)
-                                        {
-                                            Console.Write($"Nota quiz numero:{i + 1} : ");
-                                            double nota = double.Parse(Console.ReadLine());
-                                        }
-                                        estuActualizar.Trabajos = nParActu;
 
-                                    }
+
                                     else
                                     {
                                         Console.WriteLine("Ingrese una opcion valida");
                                     }
-                                    break;
+
+                                break;
                                 case 3:
                                     flag = false;
                                     break;
