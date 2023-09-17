@@ -322,7 +322,7 @@ namespace registroNotas.Entities
                             for (int i = 0; i < lsEstudiantes.Count; i++)
                             {
                                 Console.WriteLine("\n Lista de Estudiantes");
-                                Console.WriteLine(" Codigo: " + lsEstudiantes[i].cod + " Nombre: " + lsEstudiantes[i].nombre + " Nota Parcial: " + lsEstudiantes[i].parciales.Count);
+                                Console.WriteLine("-Codigo: " + lsEstudiantes[i].cod + " -Nombre: " + lsEstudiantes[i].nombre + " -Correo: " + lsEstudiantes[i].correo + " -Nota Parcial: " + lsEstudiantes[i].parciales.Count);
                             }
 
 
@@ -383,27 +383,57 @@ namespace registroNotas.Entities
         }
         public static void updateEstudiante(List<Estudiantes> lsEstudiantes)
         {
-
             if (lsEstudiantes.Count != 0)
             {
                 try
                 {
-                    int opc = MisFunciones.menuActualizar();
-                    switch (opc)
+                    Console.Write("Ingrese el codigo del estudiante que desea actualizar:");
+                    int idBuscar = int.Parse(Console.ReadLine());
+                    bool existe = lsEstudiantes.Exists(x => x.cod == idBuscar);
+                    if (existe)
                     {
-                        case 1:
-                            break;
-                        case 2:
-                            break;
-                        case 3:
-                            break;
-                        default:
-                            Console.WriteLine("Ingrese un valor valido");
-                            break;
+                        bool flag = true;
+                        while (flag)
+                        {   
+                            Console.Clear();
+                            int opc = MisFunciones.menuActualizar();
+                            switch (opc)
+                            {
+                                case 1:
+                                    Console.WriteLine("Actualizar Estudiante");
+                                    Estudiantes estuActualizar = lsEstudiantes.FirstOrDefault(x => x.cod == idBuscar);
+                                    Console.Write("Ingrese el nuevo nombre del estudiante:");
+                                    estuActualizar.Nombre = Console.ReadLine();
+                                    Console.Write("Ingrese el nuevo correo del estudiante:");
+                                    estuActualizar.Correo= Console.ReadLine();
+                                    Console.Write("Ingrese la edad del estudiante:");
+                                    estuActualizar.Edad = int.Parse(Console.ReadLine());
+                                    Console.Write("Ingrese la nueva direccion del estudiante:");
+                                    estuActualizar.Direccion= Console.ReadLine();
+                                    Console.WriteLine("Estudiante Actualizado con exito");
+                                    break;
+                                case 2:
+                                    Console.WriteLine("Actualizar Notas Estudiante");
+                                    break;
+                                case 3:
+                                    flag = false;
+                                    break;
 
+                                default:
+                                    Console.WriteLine("Ingrese una opcion valida");
+                                    break;
+                            }
+                        }
                     }
-                }catch (Exception e){
-                    Console.WriteLine("Ingrese datos validos");
+                    else
+                    {
+                        Console.WriteLine("El codigo ingresado no se encuentra registrado");
+                    }
+
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine("Ingrese valores validos");
                 }
             }
             else

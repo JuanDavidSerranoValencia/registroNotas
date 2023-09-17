@@ -45,9 +45,10 @@ public class MisFunciones
 
     public static int menuActualizar()
     {
-        Console.WriteLine("1.Actualizar Estudiante");
+        Console.WriteLine("\n1.Actualizar Informacion Estudiante");
         Console.WriteLine("2.Actualizar Notas Estudiante");
         Console.WriteLine("3. Volver");
+        Console.Write("Ingrese la opcion a realizar :");
         return int.Parse(Console.ReadLine());
     }
 
