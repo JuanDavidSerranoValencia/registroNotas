@@ -395,11 +395,11 @@ namespace registroNotas.Entities
                         bool flag = true;
                         while (flag)
                         {   
-                            Console.Clear();
                             int opc = MisFunciones.menuActualizar();
                             switch (opc)
                             {
                                 case 1:
+                                    Console.Clear();
                                     Console.WriteLine("Actualizar Estudiante");
                                     Estudiantes estuActualizar = lsEstudiantes.FirstOrDefault(x => x.cod == idBuscar);
                                     Console.Write("Ingrese el nuevo nombre del estudiante:");
@@ -414,6 +414,16 @@ namespace registroNotas.Entities
                                     break;
                                 case 2:
                                     Console.WriteLine("Actualizar Notas Estudiante");
+                                    int opcActu=MisFunciones.menuEstudiantes();
+                                    if(opc==1){
+                                        
+                                    }else if(opc ==2){
+
+                                    }else if(opc==3){
+
+                                    }else{
+                                        Console.WriteLine("Ingrese una opcion valida");
+                                    }
                                     break;
                                 case 3:
                                     flag = false;
