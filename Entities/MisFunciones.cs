@@ -52,4 +52,7 @@ public class MisFunciones
         return int.Parse(Console.ReadLine());
     }
 
+   
+
+
 }

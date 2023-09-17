@@ -390,38 +390,66 @@ namespace registroNotas.Entities
                     Console.Write("Ingrese el codigo del estudiante que desea actualizar:");
                     int idBuscar = int.Parse(Console.ReadLine());
                     bool existe = lsEstudiantes.Exists(x => x.cod == idBuscar);
+                    Estudiantes estuActualizar = lsEstudiantes.FirstOrDefault(x => x.cod == idBuscar);
                     if (existe)
                     {
                         bool flag = true;
                         while (flag)
-                        {   
+                        {
                             int opc = MisFunciones.menuActualizar();
                             switch (opc)
                             {
                                 case 1:
                                     Console.Clear();
                                     Console.WriteLine("Actualizar Estudiante");
-                                    Estudiantes estuActualizar = lsEstudiantes.FirstOrDefault(x => x.cod == idBuscar);
                                     Console.Write("Ingrese el nuevo nombre del estudiante:");
                                     estuActualizar.Nombre = Console.ReadLine();
                                     Console.Write("Ingrese el nuevo correo del estudiante:");
-                                    estuActualizar.Correo= Console.ReadLine();
+                                    estuActualizar.Correo = Console.ReadLine();
                                     Console.Write("Ingrese la edad del estudiante:");
                                     estuActualizar.Edad = int.Parse(Console.ReadLine());
                                     Console.Write("Ingrese la nueva direccion del estudiante:");
-                                    estuActualizar.Direccion= Console.ReadLine();
+                                    estuActualizar.Direccion = Console.ReadLine();
                                     Console.WriteLine("Estudiante Actualizado con exito");
                                     break;
                                 case 2:
                                     Console.WriteLine("Actualizar Notas Estudiante");
-                                    int opcActu=MisFunciones.menuEstudiantes();
-                                    if(opc==1){
-                                        
-                                    }else if(opc ==2){
+                                    int opcActu = MisFunciones.menuEstudiantes();
+                                    if (opc == 1)
+                                    {
+                                        List<double> nParActu = new List<double>();
+                                        for (int i = 0; i < estuActualizar.parciales.Count; i++)
+                                        {
+                                            Console.Write($"Nota parcial numero:{i + 1} : ");
+                                            double nota = double.Parse(Console.ReadLine());
+                                        }
+                                        estuActualizar.Parciales = nParActu;
 
-                                    }else if(opc==3){
+                                    }
+                                    else if (opc == 2)
+                                    {
+                                        List<double> nParActu = new List<double>();
+                                        for (int i = 0; i < estuActualizar.quices.Count; i++)
+                                        {
+                                            Console.Write($"Nota quiz numero:{i + 1} : ");
+                                            double nota = double.Parse(Console.ReadLine());
+                                        }
+                                        estuActualizar.Quices = nParActu;
 
-                                    }else{
+                                    }
+                                    else if (opc == 3)
+                                    {
+                                        List<double> nParActu = new List<double>();
+                                        for (int i = 0; i < estuActualizar.trabajos.Count; i++)
+                                        {
+                                            Console.Write($"Nota quiz numero:{i + 1} : ");
+                                            double nota = double.Parse(Console.ReadLine());
+                                        }
+                                        estuActualizar.Trabajos = nParActu;
+
+                                    }
+                                    else
+                                    {
                                         Console.WriteLine("Ingrese una opcion valida");
                                     }
                                     break;
