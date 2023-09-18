@@ -2,6 +2,10 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Linq;
+using registroNotas.Entities;
+using Newtonsoft.Json;
+
 
 namespace registroNotas;
 
@@ -52,7 +56,34 @@ public class MisFunciones
         return int.Parse(Console.ReadLine());
     }
 
-   
+     public static void SaveData( List<Estudiantes> lstListado)
+        {   
+        string json = JsonConvert.SerializeObject(lstListado, Formatting.Indented);
+        File.WriteAllText("boletin.json", json);
+        }
+
+        public static List<Estudiantes> LoadData()
+        {
+            string filePath = "boletin.json";
+
+            if (!File.Exists(filePath))
+            {
+                try
+                    {
+                        File.WriteAllText(filePath, "[]");
+                    }
+                catch (Exception ex)
+                    {
+                        Console.WriteLine($"Error creating and initializing the file: {ex.Message}");
+                    }
+            }
+            using (StreamReader reader = new StreamReader("boletin.json"))
+            {
+                string json = reader.ReadToEnd();
+                return System.Text.Json.JsonSerializer.Deserialize<List<Estudiantes>>(json, new System.Text.Json.JsonSerializerOptions()
+                { PropertyNameCaseInsensitive = true }) ?? new List<Estudiantes>();
+            }
+        }
 
 
 }

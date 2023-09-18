@@ -23,6 +23,7 @@ internal class Program
                     Console.Clear();
                     Console.WriteLine("REGISTRO ESTUDIANTES");
                     Estudiantes.crearEstudiantes(listaEstudiantes, estudiante);
+                    MisFunciones.SaveData(listaEstudiantes);
 
                 }
                 else if (opc == 2)
